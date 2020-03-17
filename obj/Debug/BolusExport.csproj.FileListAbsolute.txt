@@ -1,0 +1,13 @@
+C:\prog\BolusExport\BolusExport\bin\Debug\VMS.TPS.Common.Model.API.dll
+C:\prog\BolusExport\BolusExport\bin\Debug\VMS.TPS.Common.Model.Types.dll
+C:\prog\BolusExport\BolusExport\bin\Debug\VMS.TPS.Common.Calculation.Interface.dll
+C:\prog\BolusExport\BolusExport\bin\Debug\VMS.TPS.Common.Model.Interface.dll
+C:\prog\BolusExport\BolusExport\bin\Debug\VMS.TPS.Common.Model.API.xml
+C:\prog\BolusExport\BolusExport\bin\Debug\VMS.TPS.Common.Model.Types.xml
+C:\prog\BolusExport\BolusExport\obj\Debug\BolusExport.csprojAssemblyReference.cache
+C:\prog\BolusExport\BolusExport\obj\Debug\BolusExport.csproj.CoreCompileInputs.cache
+C:\prog\BolusExport\BolusExport\obj\Debug\BolusExport.csproj.CopyComplete
+C:\prog\BolusExport\BolusExport\bin\Debug\BolusExport.esapi.dll
+C:\prog\BolusExport\BolusExport\bin\Debug\BolusExport.esapi.pdb
+C:\prog\BolusExport\BolusExport\obj\Debug\BolusExport.esapi.dll
+C:\prog\BolusExport\BolusExport\obj\Debug\BolusExport.esapi.pdb
