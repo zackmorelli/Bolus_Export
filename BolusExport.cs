@@ -55,7 +55,9 @@ namespace VMS.TPS
         return;
       }
 
-      string temp = @"\\ntfs16\TherapyPhysics\Clinical Physics\Clinical Bolus";
+     // string temp = @"\\ntfs16\TherapyPhysics\Clinical Physics\Clinical Bolus";      //Lahey
+
+      string temp = @"\\shccorp\PHYSICS\New File Structure PHYSICS\Patient Data\Clinical Bolus";        //Winchester
 
       string folder = string.Format(@"{0}\Export3D\{1}", temp, MakeFilenameValid(patient.Id));
 
@@ -101,7 +103,7 @@ namespace VMS.TPS
 
     }
 
-    //---------------------------------------------------------------------------------------------
+    //-------------------------------------------------------------------------------------------------------------------------------
     void ExportStructures(StructureSet ss, string folder)
     {
       foreach (Structure structure in ss.Structures)
@@ -114,7 +116,7 @@ namespace VMS.TPS
       }
     }
 
-    //---------------------------------------------------------------------------------------------
+    //------------------------------------------------------------------------------------------------------------------------------
     void ExportDose(Dose dose, string folder)
     {
       string filename = folder + "\\dose.vtk";
@@ -128,19 +130,24 @@ namespace VMS.TPS
       }
     }
 
-    //---------------------------------------------------------------------------------------------
+    //-----------------------------------------------------------------------------------------------------------------------------
     void ExportBolus(StructureSet ss, string folder)
     {
       foreach (Structure structure in ss.Structures)
       {
         if (!structure.HasSegment || structure.DicomType != "BOLUS")
-          continue;
-        string id = structure.Id;
-        string filename = MakeFilenameValid(id);
+        {
+            continue;
+        }
+        else
+        {
+           string id = structure.Id;
+           string filename = MakeFilenameValid(id);
 
-        //comment out the file output you do not want
-        //SaveTriangleMeshToPlyFile(structure.MeshGeometry, folder + "\\" + filename + ".ply");
-        SaveTriangleMeshtoStlFile(structure.MeshGeometry, folder + "\\" + filename + ".stl");
+           //comment out the file output you do not want
+           //SaveTriangleMeshToPlyFile(structure.MeshGeometry, folder + "\\" + filename + ".ply");
+           SaveTriangleMeshtoStlFile(structure.MeshGeometry, folder + "\\" + filename + ".stl");
+        }  
       }
     }
 

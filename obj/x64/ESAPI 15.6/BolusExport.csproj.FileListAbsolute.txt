@@ -1,0 +1,9 @@
+C:\prog\BolusExport\BolusExport\bin\x64\ESAPI 15.6\BolusExport.esapi.dll
+C:\prog\BolusExport\BolusExport\bin\x64\ESAPI 15.6\BolusExport.esapi.pdb
+C:\prog\BolusExport\BolusExport\bin\x64\ESAPI 15.6\VMS.TPS.Common.Model.API.dll
+C:\prog\BolusExport\BolusExport\bin\x64\ESAPI 15.6\VMS.TPS.Common.Model.Types.dll
+C:\prog\BolusExport\BolusExport\obj\x64\ESAPI 15.6\BolusExport.csprojAssemblyReference.cache
+C:\prog\BolusExport\BolusExport\obj\x64\ESAPI 15.6\BolusExport.csproj.CoreCompileInputs.cache
+C:\prog\BolusExport\BolusExport\obj\x64\ESAPI 15.6\BolusExport.csproj.CopyComplete
+C:\prog\BolusExport\BolusExport\obj\x64\ESAPI 15.6\BolusExport.esapi.dll
+C:\prog\BolusExport\BolusExport\obj\x64\ESAPI 15.6\BolusExport.esapi.pdb
