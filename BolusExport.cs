@@ -48,6 +48,7 @@ namespace VMS.TPS
     //---------------------------------------------------------------------------------------------
     public void Execute(ScriptContext context /*, System.Windows.Window window*/)
     {
+      MessageBox.Show("Starting Bolus Export");
       Patient patient = context.Patient;
       if (context.StructureSet == null)
       {
@@ -57,7 +58,7 @@ namespace VMS.TPS
 
      // string temp = @"\\ntfs16\TherapyPhysics\Clinical Physics\Clinical Bolus";      //Lahey
 
-      string temp = @"\\shccorp\PHYSICS\New File Structure PHYSICS\Patient Data\Clinical Bolus";        //Winchester
+      string temp = @"\\shceclipseimg\VA_DATA$\ProgramData\Vision\Clinical Bolus";        //Winchester
 
       string folder = string.Format(@"{0}\Export3D\{1}", temp, MakeFilenameValid(patient.Id));
 
