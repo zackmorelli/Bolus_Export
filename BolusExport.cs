@@ -46,6 +46,11 @@ namespace VMS.TPS
     }
 
     //---------------------------------------------------------------------------------------------
+    // This is a program we got from Varian and then edited so that it outputs files in .stl format
+    // It makes a folder for the patient with the patient's MRN, if it doesn't already exist
+    // This folder is under the clinical bolus folder on the TherapyPhysics drive
+    // This folder and the structure set are then passed to the ExportBolus method
+
     public void Execute(ScriptContext context /*, System.Windows.Window window*/)
     {
       MessageBox.Show("Starting Bolus Export");
@@ -56,9 +61,9 @@ namespace VMS.TPS
         return;
       }
 
-     // string temp = @"\\ntfs16\TherapyPhysics\Clinical Physics\Clinical Bolus";      //Lahey
+      string temp = @"\\ntfs16\TherapyPhysics\Clinical Physics\Clinical Bolus";      //Lahey
 
-      string temp = @"\\shceclipseimg\VA_DATA$\ProgramData\Vision\Clinical Bolus";        //Winchester
+     // string temp = @"\\shceclipseimg\VA_DATA$\ProgramData\Vision\Clinical Bolus";        //Winchester
 
       string folder = string.Format(@"{0}\Export3D\{1}", temp, MakeFilenameValid(patient.Id));
 
@@ -74,33 +79,11 @@ namespace VMS.TPS
         context.PlanSetup.DoseValuePresentation = DoseValuePresentation.Absolute;
         //ExportDose(context.PlanSetup.Dose, folder);
       }
+
+      // ExportBolus saves any structure with the BOLUS Dicom type or with a name like "bolus" as an STL file in the patient's folder.
       ExportBolus(context.StructureSet, folder);
 
       MessageBox.Show("3D Bolus successfully exported to " + folder + ".");
-
-
-    /*
-
-      MailMessage mail = new MailMessage();
-      SmtpClient SmtpServer = new SmtpClient("smtp.gmail.com");
-
-      mail.From = new MailAddress("zackmorelli@gmail.com");
-      mail.To.Add("zackmorelli@gmail.com");
-      mail.Subject = "Clinical Bolus STL File exported";
-      mail.Body = "The BolusExport Eclipse Script has succesfully executed and exported an STL file to the Clinical Bolus folder on the Therapy Physics drive";
-
-      SmtpServer.Host = "smtp.gmail.com";
-      SmtpServer.Port = 587;
-      SmtpServer.EnableSsl = true;
-      SmtpServer.DeliveryMethod = SmtpDeliveryMethod.Network;
-      SmtpServer.UseDefaultCredentials = false;
-      SmtpServer.Credentials = new System.Net.NetworkCredential("zackmorelli@gmail.com", "Hopper5151940");
-      
-      
-      SmtpServer.Send(mail);
-      MessageBox.Show("Email to Zack sent");
-
-    */
 
     }
 
@@ -136,11 +119,11 @@ namespace VMS.TPS
     {
       foreach (Structure structure in ss.Structures)
       {
-        if (!structure.HasSegment || structure.DicomType != "BOLUS")
+        if (!structure.HasSegment)
         {
             continue;
         }
-        else
+        else if (structure.DicomType == "BOLUS" || structure.Id.Contains("bolus") || structure.Id.Contains("Bolus") || structure.Id.Contains("BOLUS"))
         {
            string id = structure.Id;
            string filename = MakeFilenameValid(id);
