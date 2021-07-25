@@ -1,5 +1,6 @@
-# Lung_BED_Calculator
+#Bolus_Export
 
-This is a Eclipse Scripting API (ESAPI) script, for use with Eclipse, which is a commerical external beam radiation treatment planning system made by Varian Medical Systems. This is one of several scripts which I have made while working in the Radiation Oncology department at Lahey Hospital and Medical Center in Burlington, MA. I have licensed it under GPL V3 so it is open-source and publicly.
+This is an Eclipse Scripting API (ESAPI) script, for use with Eclipse, which is a commerical external beam radiation treatment planning system made by Varian Medical Systems. I did NOT make this program. This was made available to Eclipse users by Varian. 
 
-There is a .docx README file that describes what the program does and how it is organized.
+This program is capable of exporting 3D Mesh files of structures from an RT plan in Eclipse, as well as dose information. I have modified it to ouput mesh files as .stl specifically for "BOLUS" structures. I use it to export .stl files that I use to 3D print Bolus for patients. This is down for plans where bolus conformity can be difficult, like nose or ear.
+
